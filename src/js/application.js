@@ -445,8 +445,6 @@ function onFontLoaded(font, fontFamilySource, fontFamily) {
     //Set selection into localstorage for potential  livereload later
     if (location.hostname === "localhost" ||
         location.hostname === "127.0.0.1" || 
-        location.hostname === "smugmacm1.local" ||
-        location.hostname === "llawenproof.andrewgraham.dev" ||
         location.hostname === "") {
         localStorage.setItem("fontFamily", fontFamily);
         localStorage.setItem("fontFamilySource", fontFamilySource);
@@ -527,18 +525,9 @@ function serverLoad() {
       // server
       var fileButtonParent = document.getElementById('section__header-file-buttons');
       // set first load as gooper
-      setFont('fonts/gooper-VF.ttf', 'gooper-VF-ttf');
-      $('#style__fontface').html('@font-face { font-family: "gooper-VF-ttf"; src: url("fonts/gooper-VF.ttf");}');
+      setFont('fonts/Llawen-VF.ttf', 'llawen-VF-ttf');
+      $('#style__fontface').html('@font-face { font-family: "llawen-VF-ttf"; src: url("fonts/Llawen-VF.ttf");}');
       // watch for user upload
-      var fileButtonHtml = '<form class="box has-advanced-upload" method="post" action="" enctype="multipart/form-data">';
-      fileButtonHtml += '<div class="box__input">';
-      fileButtonHtml += '<input id="fontInput" class="box__file" type="file" name="files[]"  data-multiple-caption="{count} files selected" multiple />';
-      fileButtonHtml += '</form>';
-      fileButtonHtml += '<div id="message"></div>'
-      fileButtonHtml += '<div id="listfonts"></div>'
-      fileButtonParent.innerHTML = fileButtonHtml;
-      var fileButton = document.getElementById('fontInput');
-      fileButton.addEventListener('change', onReadFile, false);
 }
 // Local load up font
 function localLoad() {
@@ -594,8 +583,6 @@ window.onload = function() {
     //how the fonts are populated
     if (location.hostname === "localhost" ||
         location.hostname === "127.0.0.1" ||
-        location.hostname === "smugmacm1.local" ||
-        location.hostname === "llawenproof.andrewgraham.dev" ||
         location.hostname === "") {
           localLoad();
     } else {
