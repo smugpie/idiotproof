@@ -43,7 +43,8 @@ const browserInit = function(done) {
   browserSync.init({
     notify: false,
     server: {
-      baseDir: './'
+      baseDir: './',
+      port: process.env.NODE_ENV === 'production' ? 443 : 3000
     }
   });
   done();

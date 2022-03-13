@@ -443,7 +443,11 @@ function onFontLoaded(font, fontFamilySource, fontFamily) {
     // Do the actual proofing build
     displayFontData(fontFamily);
     //Set selection into localstorage for potential  livereload later
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
+    if (location.hostname === "localhost" ||
+        location.hostname === "127.0.0.1" || 
+        location.hostname === "smugmacm1.local" ||
+        location.hostname === "llawenproof.andrewgraham.dev" ||
+        location.hostname === "") {
         localStorage.setItem("fontFamily", fontFamily);
         localStorage.setItem("fontFamilySource", fontFamilySource);
     }
@@ -588,7 +592,11 @@ function localLoad() {
 window.onload = function() {
 
     //how the fonts are populated
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
+    if (location.hostname === "localhost" ||
+        location.hostname === "127.0.0.1" ||
+        location.hostname === "smugmacm1.local" ||
+        location.hostname === "llawenproof.andrewgraham.dev" ||
+        location.hostname === "") {
           localLoad();
     } else {
           serverLoad();
