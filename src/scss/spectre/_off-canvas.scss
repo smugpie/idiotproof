@@ -2,6 +2,7 @@
 $off-canvas-breakpoint: $size-lg !default;
 
 .off-canvas {
+  display: none;
   display: flex;
   flex-flow: nowrap;
   height: 100%;

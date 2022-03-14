@@ -20,9 +20,10 @@ $screen-xxl-min: 1201px;
 }
 
 @media (max-width: $screen-lg-max) {
-  .item__sliders, .section__header-tools {
+/*  .item__sliders, .section__header-tools {
     display: none !important;
   }
+*/
 }
 
 @media (max-width: $screen-xl-max) {
