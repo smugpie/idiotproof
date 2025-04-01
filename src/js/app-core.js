@@ -855,14 +855,11 @@ export const generateStageButtons = (proof, currentStage) => {
   
 		const uniqueFonts = preserveUnique(fonts.sort());
 		
-    console.log('hello')
 		if (uniqueFonts.length === 0) {
 		  // Only show the message if no fonts are found
-      console.log("yee")
 		  fileButtonParent.innerHTML = 'Place fonts you want to proof into <code>/fonts</code> to begin';
 		} else {
 		  // First add navigation
-      console.log("here")
 		  //const navGroup = generateFontNavigation();
 		  //fileButtonParent.appendChild(navGroup);
 		  
@@ -893,11 +890,11 @@ export const generateStageButtons = (proof, currentStage) => {
   export const serverLoad = () => {
 	const fileButtonParent = document.getElementById('section__header-file-buttons');
 	
-	// Load the default Gooper font
-	setFont('fonts/gooper-VF.ttf', 'gooper-VF-ttf');
-	document.getElementById('style__fontface').innerHTML = '@font-face { font-family: "gooper-VF-ttf"; src: url("fonts/gooper-VF.ttf");}';
+	// Load the default Llawen font
+	setFont('fonts/Llawen-VF.ttf', 'Llawen-VF-ttf');
+	document.getElementById('style__fontface').innerHTML = '@font-face { font-family: "Llawen-VF-ttf"; src: url("fonts/Llawen-VF.ttf");}';
   
-	const dragDropHtml = `
+	/* const dragDropHtml = `
 	  <div id="drag-drop-area" class="drag-drop-area">
 		<p>Drag & drop font files here</p>
 		<p>or</p>
@@ -908,12 +905,13 @@ export const generateStageButtons = (proof, currentStage) => {
 
 	fileButtonParent.innerHTML = dragDropHtml;
   
-	const dragDropArea = document.getElementById('drag-drop-area');
-	const fileInput = document.getElementById('fontInput');
+	const dragDropArea = document.getElementById('drag-drop-area'); 
+	const fileInput = document.getElementById('fontInput');*/
   
 	// Prevent default drag behaviors
+  /*
 	['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-	  dragDropArea.addEventListener(eventName, preventDefaults, false);
+	   dragDropArea.addEventListener(eventName, preventDefaults, false); 
 	  document.body.addEventListener(eventName, preventDefaults, false);
 	});
   
@@ -931,6 +929,7 @@ export const generateStageButtons = (proof, currentStage) => {
   
 	// Handle selected files
 	fileInput.addEventListener('change', handleFiles, false);
+  */
   };
   
   function preventDefaults(e) {
@@ -938,6 +937,7 @@ export const generateStageButtons = (proof, currentStage) => {
 	e.stopPropagation();
   }
   
+  /*
   function highlight(e) {
 	document.getElementById('drag-drop-area').classList.add('highlight');
   }
@@ -945,6 +945,7 @@ export const generateStageButtons = (proof, currentStage) => {
   function unhighlight(e) {
 	document.getElementById('drag-drop-area').classList.remove('highlight');
   }
+  */
   
   function handleDrop(e) {
 	const dt = e.dataTransfer;
