@@ -1,9 +1,7 @@
 var { src, series, watch, dest } = require('gulp');
-var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 var autoprefixer = require('gulp-autoprefixer');
-var uglify = require('gulp-uglify');
 var { exec } = require('child_process');
 var webpack = require('webpack');
 var webpackStream = require('webpack-stream');
@@ -67,7 +65,8 @@ const browserInit = function(done) {
   browserSync.init({
     notify: false,
     server: {
-      baseDir: './'
+      baseDir: './',
+      port: process.env.NODE_ENV === 'production' ? 443 : 3000
     }
   });
   done();

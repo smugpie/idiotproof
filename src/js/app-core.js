@@ -93,11 +93,11 @@ export const onReadFile = (event) => {
 	fileButtonParent.innerHTML = '';
 
 	// First add navigation
-	const navGroup = generateFontNavigation();
-	fileButtonParent.appendChild(navGroup);
+	//const navGroup = generateFontNavigation();
+	//fileButtonParent.appendChild(navGroup);
 
 	// Then add font buttons
-	generateFontButtons(Array.from(files), 'server')
+	/* generateFontButtons(Array.from(files), 'server')
 	  .then(container => {
 		fileButtonParent.appendChild(container);
 		// Activate the first button automatically
@@ -105,7 +105,7 @@ export const onReadFile = (event) => {
 		if (firstButton) {
 		  firstButton.click();
 		}
-	  });
+	  }); */
 };
 
   const readSingleFile = (file) => {
@@ -855,16 +855,19 @@ export const generateStageButtons = (proof, currentStage) => {
   
 		const uniqueFonts = preserveUnique(fonts.sort());
 		
+    console.log('hello')
 		if (uniqueFonts.length === 0) {
 		  // Only show the message if no fonts are found
+      console.log("yee")
 		  fileButtonParent.innerHTML = 'Place fonts you want to proof into <code>/fonts</code> to begin';
 		} else {
 		  // First add navigation
-		  const navGroup = generateFontNavigation();
-		  fileButtonParent.appendChild(navGroup);
+      console.log("here")
+		  //const navGroup = generateFontNavigation();
+		  //fileButtonParent.appendChild(navGroup);
 		  
 		  // Then add font buttons
-		  generateFontButtons(uniqueFonts, 'local')
+		  /* generateFontButtons(uniqueFonts, 'local')
 		    .then(container => {
 		      fileButtonParent.appendChild(container);
 		      // Set the default font
@@ -873,7 +876,11 @@ export const generateStageButtons = (proof, currentStage) => {
 		      const fontFamily = localStorage.getItem('fontFamily') || 
 		        fontFamilySource.replace('.', '-');
 		      setFont(fontFamilySource, fontFamily);
-		    });
+		    }); */
+        const [font] = uniqueFonts;
+        const fontName = font.replace('.', '-');
+        const fontPath = `fonts/${font}`;
+        setFont(fontPath, fontName);
 		}
 	  })
 	  .catch(error => {
